@@ -19,8 +19,6 @@ DIR=$(get_script_dir)
 case "$1" in
 "print")
     # https://stackoverflow.com/questions/4824590/propagate-all-arguments-in-a-bash-shell-script
-    echo $PWD
-    echo "FIND THE PRINT FILE!!!!"
     bash $DIR/lib/print.sh $@
     ;;
 "report")
