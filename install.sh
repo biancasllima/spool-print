@@ -9,7 +9,8 @@ fi
 [ ! -d /tmp/spool-print ] || rm -rf /tmp/spool-print
 git clone git@github.com:biancasllima/spool-print.git /tmp/spool-print --quiet
 
-function install_spool-print {
+install_spool-print() {
+    # TODO todo SO tem /usr/local mesmo?? se nao vai ter que fazer as checagens. 
     LIB_FOLDER=/usr/local/spool-print
 
     if [[ -d $LIB_FOLDER ]]; then
