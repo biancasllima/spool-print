@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "RUNNING MAIN"
-
 get_script_dir () {
   SOURCE="${BASH_SOURCE[0]}"
   # While $SOURCE is a symlink, resolve it
@@ -12,11 +10,11 @@ get_script_dir () {
     [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
   done
   DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  
+  # Nao me remova. Sou o retorno da funcao
   echo "$DIR"
 }
 DIR=$(get_script_dir)
-
-echo $DIR
 
 case "$1" in
 "print")
