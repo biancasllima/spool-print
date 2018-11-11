@@ -24,7 +24,6 @@ echo $TIMESTAMP
 if [ ! -f $REPORT_FILE_PATH ]; then
   echo -e "nao tem o arquivo ***"
   cat > $REPORT_FILE_PATH <<EOL
-%>
 EOL
 fi
 
@@ -37,6 +36,9 @@ case "$1" in
     ;;
 "report")
     bash $DIR/lib/report.sh $@
+    ;;
+"--help")
+    echo 'TODO Help message'
     ;;
 *)
     echo 'You may be looking for one of this actions using "lp":'
