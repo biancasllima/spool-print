@@ -11,9 +11,21 @@ get_script_dir () {
   done
   DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
   
-  # Nao me remova. Sou o retorno da funcao
+  # Do not remove, this is functions return
   echo "$DIR"
 }
+
+MY_USER=$(whoami)
+REPORT_FILE_PATH=/home/$MY_USER/.config_lp.yaml
+
+if [ ! -f $REPORT_FILE_PATH ]; then
+  echo -e "nao tem o arquivo ***"
+  cat > $REPORT_FILE_PATH <<EOL
+  %>
+  
+EOL
+fi
+
 DIR=$(get_script_dir)
 
 case "$1" in
