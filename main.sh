@@ -44,7 +44,7 @@ fi
 # For unregistered users
 HAS_USER=$(grep "$LP_USER" "$USERS_FILE_PATH")
 if [ -z "$HAS_USER" ]; then 
-  echo "$LP_USER , $DEFAULT_QUOTE " >> $USERS_FILE_PATH
+  echo "$LP_USER,$DEFAULT_QUOTE " >> $USERS_FILE_PATH
 fi
 
 DIR=$(get_script_dir)
