@@ -16,13 +16,15 @@ get_script_dir () {
 }
 
 MY_USER=$(whoami)
-REPORT_FILE_PATH=/home/$MY_USER/.config_lp.yaml
+REPORT_FILE_PATH=/home/$MY_USER/.config_lp.csv
+
+TIMESTAMP=$(date "+%d/%m/%Y")
+echo $TIMESTAMP
 
 if [ ! -f $REPORT_FILE_PATH ]; then
   echo -e "nao tem o arquivo ***"
   cat > $REPORT_FILE_PATH <<EOL
-  %>
-  
+%>
 EOL
 fi
 
