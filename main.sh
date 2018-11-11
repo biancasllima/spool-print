@@ -16,20 +16,40 @@ get_script_dir () {
 }
 
 MY_USER=$(whoami)
-REPORT_FILE_PATH=/home/$MY_USER/.config_lp.csv
+USERS_FILE_PATH=/home/$MY_USER/.config_lp_users.csv
+REPORT_FILE_PATH=/home/$MY_USER/.config_lp_report.csv
+DEFAULT_QUOTE=50;
+
+ACTION=$1
+LP_USER=$2
+FILE_PATH=$3
 
 TIMESTAMP=$(date "+%d/%m/%Y")
 echo $TIMESTAMP
 
+# Creating users file
+if [ ! -f $USERS_FILE_PATH ]; then
+  echo -e "nao tem o arquivo USERS***"
+  cat > $USERS_FILE_PATH <<EOL
+EOL
+fi
+
+# Creating report file
 if [ ! -f $REPORT_FILE_PATH ]; then
-  echo -e "nao tem o arquivo ***"
+  echo -e "nao tem o arquivo REPORT***"
   cat > $REPORT_FILE_PATH <<EOL
 EOL
 fi
 
+# For unregistered users
+HAS_USER=$(grep "$LP_USER" "$USERS_FILE_PATH")
+if [ -z "$HAS_USER" ]; then 
+  echo "$LP_USER , $DEFAULT_QUOTE " >> $USERS_FILE_PATH
+fi
+
 DIR=$(get_script_dir)
 
-case "$1" in
+case $ACTION in
 "print")
     # https://stackoverflow.com/questions/4824590/propagate-all-arguments-in-a-bash-shell-script
     bash $DIR/lib/print.sh $@
