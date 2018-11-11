@@ -39,6 +39,11 @@ case "$1" in
     bash $DIR/lib/report.sh $@
     ;;
 *)
-    echo 'TODO Show a nice help with the options.'
+    echo 'You may be looking for one of this actions using "lp":'
+    echo ''
+    echo 'print <user> <file>'
+    echo 'report'
+    echo ''
+    echo 'More informations in lp --help'
     ;;
 esac
