@@ -21,8 +21,8 @@ install_spool-print() {
     mv /tmp/spool-print /usr/local
     chmod 755 /usr/local/spool-print
 
-    ln -s -f /usr/local/spool-print/main.sh /usr/local/bin/lp_tt
-    chmod 755 /usr/local/bin/lp_tt
+    ln -s -f /usr/local/spool-print/main.sh /usr/local/bin/lp_bs
+    chmod 755 /usr/local/bin/lp_bs
 }
 
 if [ $EUID != 0 ]; then
