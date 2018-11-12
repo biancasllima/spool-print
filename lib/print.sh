@@ -26,10 +26,18 @@ fi
 
 
 # saber qual eh o valor da conta do usuario
-USER_QUOTE=$(grep julio.jlmj $USERS_FILE_PATH | awk -F"," '{print $2}')
-echo $USER_QUOTE
-# if []; then
+USER_QUOTE=$(grep $LP_USER $USERS_FILE_PATH | awk -F"," '{print $2}')
 
-# else
-#     echo "$LP_USER,$MONTH,$YEAR,$NUM_PAGES" >> $REPORT_FILE_PATH
-# fi
+USAGE=$(grep $LP_USER $REPORT_FILE_PATH | grep $MONTH | grep $YEAR | awk -F',' '{x+=$4}END{print x}')
+
+re='^[0-9]+$'
+if ! [[ $USAGE =~ $re ]]; then
+    USAGE=0
+fi
+
+TOTAL=`expr $USAGE + $NUM_PAGES`
+if [ $TOTAL -gt $USER_QUOTE ]; then
+    echo "Your quota exceeded"
+else
+    echo "$LP_USER,$MONTH,$YEAR,$NUM_PAGES" >> $REPORT_FILE_PATH
+fi
