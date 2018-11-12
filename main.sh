@@ -24,9 +24,6 @@ ACTION=$1
 LP_USER=$2
 FILE_PATH=$3
 
-TIMESTAMP=$(date "+%d/%m/%Y")
-echo $TIMESTAMP
-
 # Creating users file
 if [ ! -f $USERS_FILE_PATH ]; then
   echo -e "nao tem o arquivo USERS***"
