@@ -1,6 +1,7 @@
 #!/bin/bash
 
-REPORT_FILE_PATH=/home/$(whoami)/.config_lp_report.csv
+MY_USER=$(whoami)
+REPORT_FILE_PATH=/home/$MY_USER/.config_lp_report.csv
 
 USUARIOS=$(sort -u -t, -k1,1 $REPORT_FILE_PATH | awk -F "\"*,\"*" '{print $1}')
 
