@@ -5,7 +5,7 @@ REPORT_FILE_PATH=/home/$MY_USER/.config_lp_report.csv
 
 USUARIOS=$(sort -u -t, -k1,1 $REPORT_FILE_PATH | awk -F "\"*,\"*" '{print $1}')
 
-TIME_FRAME=$(sort -u -t, -k2,3 $REPORT_FILE_PATH | awk -F "\"*,\"*" '{printf "%s %s-",$2, $3}' | sort -u -t, -k1,1)
+TIME_FRAME=$(sort -u -r -t, -k2,3 $REPORT_FILE_PATH | awk -F "\"*,\"*" '{printf "%s %s-",$2, $3}' | sort -u -t, -k1,1)
 
 IFS='-' read -r -a array <<< "$TIME_FRAME"
 
