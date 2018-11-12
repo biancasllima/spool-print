@@ -1,8 +1,7 @@
 #!/bin/bash
 
 if ! type "git" > /dev/null; then
-  # TODO não exibir mensagem ruim do comando acima
-  echo 'You need to install git'
+  echo 'Make sure you have *git* installed.'
   exit $?
 fi
 
@@ -14,7 +13,6 @@ install_spool-print() {
     LIB_FOLDER=/usr/local/spool-print
 
     if [[ -d $LIB_FOLDER ]]; then
-        echo 'removing past version'
         rm -rf $LIB_FOLDER
     fi
 
@@ -28,6 +26,6 @@ install_spool-print() {
 if [ $EUID != 0 ]; then
     FUNC=$(declare -f install_spool-print)
     sudo bash -c "$FUNC; install_spool-print"
-    echo "Sucess! TODO colocar mensagem"
+    echo "Sucess! Now you can use *lp* to print and display reports."
     exit $?
 fi

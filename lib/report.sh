@@ -11,8 +11,6 @@ IFS='-' read -r -a array <<< "$TIME_FRAME"
 for FRAME in "${array[@]}"
 do
     echo "Uso dos usuarios em $FRAME:"
-
-
     for USER in ${USUARIOS// / } ; do 
         IFS=' ' read -ra OUT <<< "$FRAME"
         MONTH=${OUT[0]}

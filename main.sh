@@ -33,7 +33,6 @@ fi
 
 # Creating report file
 if [ ! -f $REPORT_FILE_PATH ]; then
-  echo -e "nao tem o arquivo REPORT***"
   cat > $REPORT_FILE_PATH <<EOL
 EOL
 fi
@@ -55,14 +54,21 @@ case $ACTION in
     bash $DIR/lib/report.sh $@
     ;;
 "--help")
-    echo 'TODO Help message'
+    echo ' You can use lp to print files and to display reports for users and its monthly quota. Important: the default quota is *50 pages*!
+    
+    print: Print a file if its page count does not exceed the month quota. Use it with 2 parameters: user and file. E.g.: 
+print my_user my_file.txt
+
+    report: Displays all the users consumption per month and year. There is no need for parameters.
+  
+    '
     ;;
 *)
-    echo 'You may be looking for one of this actions using "lp":'
-    echo ''
-    echo 'print <user> <file>'
-    echo 'report'
-    echo ''
-    echo 'More informations in lp --help'
+    echo 'You may be looking for one of this actions using *lp*:
+      
+    print 
+    report
+
+For more informations use: lp --help'
     ;;
 esac
