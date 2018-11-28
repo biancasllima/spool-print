@@ -26,6 +26,8 @@ ACTION=$1
 LP_USER=$2
 FILE_PATH=$3
 
+# Create files in another bash script!! 
+
 # Creating users file
 if [ ! -f $USERS_FILE_PATH ]; then
   cat > $USERS_FILE_PATH <<EOL
