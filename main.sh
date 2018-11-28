@@ -11,13 +11,15 @@ get_script_dir () {
   done
   DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
   
-  # Do not remove, this is functions return
+  # Do not remove, this is the function return
   echo "$DIR"
 }
 
 MY_USER=$(whoami)
 USERS_FILE_PATH=/home/$MY_USER/.config_lp_users.csv
 REPORT_FILE_PATH=/home/$MY_USER/.config_lp_report.csv
+COMMANDS_LOG_FILE_PATH=/home/$MY_USER/.config_lp_commands_log.csv
+UCP_USE_FILE_PATH=/home/$MY_USER/.config_lp_upc_use.csv
 DEFAULT_QUOTE=50;
 
 ACTION=$1
@@ -26,7 +28,6 @@ FILE_PATH=$3
 
 # Creating users file
 if [ ! -f $USERS_FILE_PATH ]; then
-  echo -e "nao tem o arquivo USERS***"
   cat > $USERS_FILE_PATH <<EOL
 EOL
 fi
@@ -34,6 +35,18 @@ fi
 # Creating report file
 if [ ! -f $REPORT_FILE_PATH ]; then
   cat > $REPORT_FILE_PATH <<EOL
+EOL
+fi
+
+# Creating Commands log file
+if [ ! -f $COMMANDS_LOG_FILE_PATH ]; then
+    cat > $COMMANDS_LOG_FILE_PATH <<EOL
+EOL
+fi
+
+# Creating UCP use file
+if [ ! -f $UCP_USE_FILE_PATH ]; then
+    cat > $UCP_USE_FILE_PATH <<EOL
 EOL
 fi
 
