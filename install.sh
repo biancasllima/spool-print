@@ -9,6 +9,7 @@ fi
 git clone git@github.com:biancasllima/spool-print.git /tmp/spool-print --quiet
 
 install_spool-print() {
+    # Mac OS and Linux have the same behavior? Test it!
     LIB_FOLDER=/usr/local/spool-print
 
     if [[ -d $LIB_FOLDER ]]; then
