@@ -22,6 +22,8 @@ COMMANDS_LOG_FILE_PATH=/home/$MY_USER/.config_lp_commands_log.csv
 UCP_USE_FILE_PATH=/home/$MY_USER/.config_lp_upc_use.csv
 DEFAULT_QUOTE=50;
 
+TEST="OKOKOKOK"
+
 ACTION=$1
 LP_USER=$2
 FILE_PATH=$3
@@ -37,6 +39,10 @@ if [ ! -f $REPORT_FILE_PATH ]; then
   cat > $REPORT_FILE_PATH <<EOL
 EOL
 fi
+
+# * ATTENTION *
+# TODO Create variable to get time in main.sh and export to all bashscripts
+# Use this variable to keep initial timestamp and then compare with all final timestamps at each bashscript.
 
 # Creating Commands log file
 if [ ! -f $COMMANDS_LOG_FILE_PATH ]; then
