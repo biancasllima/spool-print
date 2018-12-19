@@ -18,9 +18,9 @@ if [ ! -f $TMP_FILE_PATH ]; then
 EOL
 fi
 
-declare -A BUILT_IN_COMMANDS=( 
- ['alias']=1  ['cd']=1 ['printf']=1 ['eval']=1 ['break']=1 ['builtin']=1 ['caller']=1 ['echo']=1 ['exec']=1
- ['return']=1 ['exit']=1 ['export']=1 ['for']=1 ['pwd']=1 ['kill']=1 ['help']=1
+declare -A BUILT_IN_BASH_COMMANDS=( 
+ ['alias']=1  ['cd']=1 ['printf']=1 ['eval']=1 ['break']=1 ['echo']=1 ['exec']=1
+ ['return']=1 ['exit']=1 ['for']=1 ['pwd']=1 ['kill']=1 ['help']=1
 )
 
 check_built_in_commands () {
