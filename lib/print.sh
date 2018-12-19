@@ -1,8 +1,5 @@
 #!/bin/bash
 
-INIT=$(date +"%T")
-export INIT
-
 ACTION=$1
 LP_USER=$2
 FILE_PATH=$3
