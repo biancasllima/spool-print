@@ -4,8 +4,8 @@ MY_USER=$(whoami)
 WORKING_DIRECTORY=$(pwd)
 HOST=`hostname`
 BASE_DIR=/home/$MY_USER
-LOGS_FILE_PATH=$BASE_DIR/.commands-logs.csv
-TMP_FILE_PATH=$BASE_DIR/.temp-logs.csv
+LOGS_FILE_PATH=$BASE_DIR/.config_lp_commands_log.csv
+TMP_FILE_PATH=$BASE_DIR/.config_lp_temp_logs.csv
 
 # Creating commands logs file
 if [ ! -f $LOGS_FILE_PATH ]; then
