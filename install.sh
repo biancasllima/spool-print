@@ -9,6 +9,7 @@ fi
 git clone git@github.com:biancasllima/spool-print.git /tmp/spool-print --quiet
 
 install_spool-print() {
+    # Mac OS and Linux have the same behavior? Test it!
     LIB_FOLDER=/usr/local/spool-print
 
     if [[ -d $LIB_FOLDER ]]; then
@@ -25,6 +26,7 @@ install_spool-print() {
 if [ $EUID != 0 ]; then
     FUNC=$(declare -f install_spool-print)
     sudo bash -c "$FUNC; install_spool-print"
-    echo "Sucess! Now you can use *lp* to print and display reports."
+    ## TODO Error message in case the user is not able to install the program.
+    echo "Success! Now you can use *lp* to print and display reports."
     exit $?
 fi
