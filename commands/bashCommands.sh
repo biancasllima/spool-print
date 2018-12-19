@@ -2,7 +2,6 @@
 
 MY_USER=$(whoami)
 WORKING_DIRECTORY=$(pwd)
-HOST=`hostname`
 BASE_DIR=/home/$MY_USER
 LOGS_FILE_PATH=$BASE_DIR/.config_lp_commands_log.csv
 TMP_FILE_PATH=$BASE_DIR/.config_lp_temp_logs.csv
@@ -24,13 +23,12 @@ declare -A BUILT_IN_COMMANDS=(
  ['return']=1 ['exit']=1 ['export']=1 ['for']=1 ['pwd']=1 ['kill']=1 ['help']=1
 )
 
-check_commands () {
+check_built_in_commands () {
   [[ -n "${BUILT_IN_COMMANDS[$1]}" ]] && printf '1'
 }
 
-
 while IFS= read -r COMMAND; do
-    IS_BUILT_IN=`check_commands $COMMAND` 
+    IS_BUILT_IN=`check_built_in_commands $COMMAND` 
     
     if [[ "$IS_BUILT_IN" == 1 ]]; then 
       eval $COMMAND 
@@ -38,12 +36,8 @@ while IFS= read -r COMMAND; do
       /usr/bin/time -o $TMP_FILE_PATH -f 'SU' -p $COMMAND
     
       TIME=`cat $TMP_FILE_PATH`
-
-      printf "${COMMAND},${TIME} \n~\n" >> $LOGS_FILE_PATH
+      printf "${COMMAND},${TIME}" >> $LOGS_FILE_PATH
       rm $TMP_FILE_PATH
     fi
-
-    #printf "${MY_USER}@${HOST}:${PWD}$ " ;
-
 done
 printf "\n";
