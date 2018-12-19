@@ -2,7 +2,6 @@
 
 INIT=$(date +"%T")
 export INIT
-bash /lib/test.sh
 
 ACTION=$1
 LP_USER=$2
